@@ -150,7 +150,7 @@
         self.backgroundColor = [UIColor clearColor];
         
         if (![self idl_hasObserverWithIdentifier:BackgroundDrawableFrameTag]) {
-            __block UIView *selfRef = self;
+            __weak UIView *selfRef = self;
             [self idl_addObserver:^(NSString *keyPath, id object, NSDictionary *change) {
                 selfRef.backgroundDrawable.bounds = selfRef.bounds;
                 [selfRef setNeedsDisplay];

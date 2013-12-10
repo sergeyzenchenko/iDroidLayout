@@ -12,6 +12,6 @@
 @interface IDLDrawableLayer : CALayer <IDLDrawableDelegate> {
 }
 
-@property (nonatomic, retain) IDLDrawable *drawable;
+@property (nonatomic, strong) IDLDrawable *drawable;
 
 @end

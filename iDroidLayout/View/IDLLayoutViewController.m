@@ -11,10 +11,6 @@
 
 @implementation IDLLayoutViewController
 
-- (void)dealloc {
-    [_layoutUrl release];
-    [super dealloc];
-}
 
 - (id)init {
     self = [super init];
@@ -31,7 +27,7 @@
             nibBundleOrNil = [NSBundle mainBundle];
         }
         if (nibNameOrNil != nil) {
-            _layoutUrl = [[nibBundleOrNil URLForResource:nibNameOrNil withExtension:@"xml"] retain];
+            _layoutUrl = [nibBundleOrNil URLForResource:nibNameOrNil withExtension:@"xml"];
         }
     }
     return self;
@@ -48,7 +44,7 @@
 - (id)initWithLayoutURL:(NSURL *)layoutURL {
     self = [super init];
     if (self) {
-        _layoutUrl = [layoutURL retain];
+        _layoutUrl = layoutURL;
     }
     return self;
 }
@@ -64,10 +60,8 @@
         IDLLayoutInflater *inflater = [[IDLLayoutInflater alloc] init];
         inflater.actionTarget = self;
         [inflater inflateURL:_layoutUrl intoRootView:bridge attachToRoot:TRUE];
-        [inflater release];
     }
     self.view = bridge;
-    [bridge release];
 }
 
 - (IDLLayoutBridge *)view {

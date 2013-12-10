@@ -12,7 +12,7 @@
 @implementation UIView (IDL_ViewGroup)
 
 - (IDLLayoutParams *)generateDefaultLayoutParams {
-    return [[[IDLLayoutParams alloc] initWithWidth:IDLLayoutParamsSizeWrapContent height:IDLLayoutParamsSizeWrapContent] autorelease];
+    return [[IDLLayoutParams alloc] initWithWidth:IDLLayoutParamsSizeWrapContent height:IDLLayoutParamsSizeWrapContent];
 }
 
 - (IDLLayoutParams *)generateLayoutParamsFromLayouParams:(IDLLayoutParams *)lp {
@@ -20,7 +20,7 @@
 }
 
 - (IDLLayoutParams *)generateLayoutParamsFromAttributes:(NSDictionary *)attrs {
-    return [[[IDLLayoutParams alloc] initWithAttributes:attrs] autorelease];
+    return [[IDLLayoutParams alloc] initWithAttributes:attrs];
 }
 
 - (BOOL)checkLayoutParams:(IDLLayoutParams *)layoutParams {

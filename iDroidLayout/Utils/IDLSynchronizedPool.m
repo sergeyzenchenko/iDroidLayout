@@ -10,21 +10,11 @@
 
 @implementation IDLSynchronizedPool
 
-- (void)dealloc {
-	if (_hasBlockOwnership) {
-        [_lock release];
-    }
-    [_pool release];
-	[super dealloc];
-}
 
 - (id)initWithPool:(id<IDLPool>)pool lock:(id)lock takeLockOwnership:(BOOL)takeLockOwnership {
     self = [super init];
     if (self) {
-        _pool = [pool retain];
-        if (takeLockOwnership) {
-            [lock retain];
-        }
+        _pool = pool;
         _lock = lock;
         _hasBlockOwnership = takeLockOwnership;
     }

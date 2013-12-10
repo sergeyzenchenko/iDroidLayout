@@ -22,13 +22,13 @@ FOUNDATION_EXPORT NSUInteger const IDLDrawableMaxLevel;
 @property (nonatomic, assign) CGRect bounds;
 @property (nonatomic, readonly) NSUInteger level;
 
-@property (nonatomic, readonly) IDLDrawable *currentDrawable;
+@property (weak, nonatomic, readonly) IDLDrawable *currentDrawable;
 @property (nonatomic, readonly, getter = isStateful) BOOL stateful;
 @property (nonatomic, readonly) BOOL hasPadding;
 @property (nonatomic, readonly) UIEdgeInsets padding;
-@property (nonatomic, readonly) IDLDrawableConstantState *constantState;
+@property (weak, nonatomic, readonly) IDLDrawableConstantState *constantState;
 
-@property (nonatomic, assign) id<IDLDrawableDelegate> delegate;
+@property (nonatomic, weak) id<IDLDrawableDelegate> delegate;
 
 - (void)drawInContext:(CGContextRef)context;
 

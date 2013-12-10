@@ -79,12 +79,12 @@ IDLResourceType IDLResourceTypeFromString(NSString *typeString) {
 
 @interface IDLResourceIdentifier : NSObject
 
-@property (nonatomic, retain) NSString *bundleIdentifier;
+@property (nonatomic, strong) NSString *bundleIdentifier;
 @property (nonatomic, assign) IDLResourceType type;
-@property (nonatomic, retain) NSString *identifier;
-@property (nonatomic, assign) NSBundle *bundle;
-@property (nonatomic, retain) id cachedObject;
-@property (nonatomic, retain) NSString *valueIdentifier;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, weak) NSBundle *bundle;
+@property (nonatomic, strong) id cachedObject;
+@property (nonatomic, strong) NSString *valueIdentifier;
 
 - (id)initWithString:(NSString *)string;
 
@@ -94,13 +94,6 @@ IDLResourceType IDLResourceTypeFromString(NSString *typeString) {
 
 @implementation IDLResourceIdentifier
 
-- (void)dealloc {
-    self.bundleIdentifier = nil;
-    self.identifier = nil;
-    self.cachedObject = nil;
-    self.valueIdentifier = nil;
-    [super dealloc];
-}
 
 - (id)initWithString:(NSString *)string {
     self = [super init];
@@ -135,7 +128,6 @@ IDLResourceType IDLResourceTypeFromString(NSString *typeString) {
             valid = FALSE;
         }
         if (!valid) {
-            [self autorelease];
             return nil;
         }
         
@@ -167,8 +159,8 @@ IDLResourceType IDLResourceTypeFromString(NSString *typeString) {
 
 @interface IDLResourceManager ()
 
-@property (retain) NSMutableDictionary *resourceIdentifierCache;
-@property (retain) IDLXMLCache *xmlCache;
+@property (strong) NSMutableDictionary *resourceIdentifierCache;
+@property (strong) IDLXMLCache *xmlCache;
 
 @end
 
@@ -178,7 +170,7 @@ static IDLResourceManager *currentResourceManager;
 
 + (void)initialize {
     [super initialize];
-    currentResourceManager = [[self defaultResourceManager] retain];
+    currentResourceManager = [self defaultResourceManager];
     currentResourceManager.xmlCache = [IDLXMLCache sharedInstance];
 }
 
@@ -198,8 +190,7 @@ static IDLResourceManager *currentResourceManager;
 
 + (void)setCurrentResourceManager:(IDLResourceManager *)resourceManager {
     @synchronized(self) {
-        [currentResourceManager release];
-        currentResourceManager = [resourceManager retain];
+        currentResourceManager = resourceManager;
     }
 }
 
@@ -209,16 +200,13 @@ static IDLResourceManager *currentResourceManager;
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.resourceIdentifierCache = nil;
-    self.xmlCache = nil;
-    [super dealloc];
 }
 
 - (id)init {
     self = [super init];
     if (self) {
         self.resourceIdentifierCache = [NSMutableDictionary dictionary];
-        self.xmlCache = [[[IDLXMLCache alloc] init] autorelease];
+        self.xmlCache = [[IDLXMLCache alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
@@ -252,7 +240,6 @@ static IDLResourceManager *currentResourceManager;
             [self.resourceIdentifierCache setObject:identifier forKey:identifierString];
             [self.resourceIdentifierCache setObject:identifier forKey:[identifier description]];
         }
-        [identifier release];
     }
     return identifier;
 }
@@ -423,9 +410,9 @@ static IDLResourceManager *currentResourceManager;
     IDLResourceIdentifier *identifier = [self resourceIdentifierForString:identifierString];
     if (identifier.type == IDLResourceTypeDrawable && identifier.cachedObject != nil && ([identifier.cachedObject isKindOfClass:[IDLDrawable class]] || [identifier.cachedObject isKindOfClass:[UIImage class]])) {
         if ([identifier.cachedObject isKindOfClass:[IDLDrawable class]]) {
-            ret = [[identifier.cachedObject copy] autorelease];
+            ret = [identifier.cachedObject copy];
         } else if ([identifier.cachedObject isKindOfClass:[UIImage class]]) {
-            ret = [[[IDLBitmapDrawable alloc] initWithImage:identifier.cachedObject] autorelease];
+            ret = [[IDLBitmapDrawable alloc] initWithImage:identifier.cachedObject];
         }
     } else if (identifier.type == IDLResourceTypeDrawable) {
         NSBundle *bundle = [self resolveBundleForIdentifier:identifier];
@@ -439,12 +426,12 @@ static IDLResourceManager *currentResourceManager;
         } else {
             UIImage *image = [self imageForIdentifier:identifierString];
             if (image != nil) {
-                ret = [[[IDLBitmapDrawable alloc] initWithImage:image] autorelease];
+                ret = [[IDLBitmapDrawable alloc] initWithImage:image];
             }
         }
         if (ret != nil) {
             identifier.cachedObject = ret;
-            ret = [[ret copy] autorelease];
+            ret = [ret copy];
         }
     } else if (identifier.type == IDLResourceTypeColor) {
         IDLColorStateList *colorStateList = [self colorStateListForIdentifier:identifierString];
@@ -455,11 +442,11 @@ static IDLResourceManager *currentResourceManager;
     if (ret == nil) {
         UIImage *image = [self imageForIdentifier:identifierString];
         if (image != nil) {
-            ret = [[[IDLBitmapDrawable alloc] initWithImage:image] autorelease];
+            ret = [[IDLBitmapDrawable alloc] initWithImage:image];
         } else {
             UIColor *color = [UIColor colorFromIDLColorString:identifierString];
             if (color != nil) {
-                ret = [[[IDLColorDrawable alloc] initWithColor:color] autorelease];
+                ret = [[IDLColorDrawable alloc] initWithColor:color];
             }
         }
     }

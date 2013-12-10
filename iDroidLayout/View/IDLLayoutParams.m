@@ -17,10 +17,6 @@
 @synthesize width = _width;
 @synthesize height = _height;
 
-- (void)dealloc {
-	
-	[super dealloc];
-}
 
 
 - (id)initWithWidth:(CGFloat)width height:(CGFloat)height {
@@ -59,7 +55,6 @@
         NSString *heightAttr = [attrs objectForKey:@"layout_height"];
         if (widthAttr == nil || heightAttr == nil) {
             NSLog(@"You have to set the layout_width and laypit_height parameters.");
-            [self release];
             return nil;
         }
         _width = [IDLLayoutParams sizeForLayoutSizeAttribute:widthAttr];

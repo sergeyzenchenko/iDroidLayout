@@ -12,10 +12,6 @@
 
 @synthesize margin = _margin;
 
-- (void) dealloc {
-	
-	[super dealloc];
-}
 
 
 - (id)initWithWidth:(CGFloat)width height:(CGFloat)height {

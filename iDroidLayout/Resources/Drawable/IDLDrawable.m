@@ -174,14 +174,14 @@ NSUInteger const IDLDrawableMaxLevel = 10000;
         drawable = [[drawableClass alloc] init];
         [drawable inflateWithElement:element];
     }
-    return [drawable autorelease];
+    return drawable;
 }
 
 + (IDLDrawable *)createFromXMLData:(NSData *)data {
     if (data == nil) return nil;
     IDLDrawable *ret = nil;
     NSError *error = nil;
-    TBXML *xml = [[TBXML newTBXMLWithXMLData:data error:&error] autorelease];
+    TBXML *xml = [TBXML newTBXMLWithXMLData:data error:&error];
     if (error == nil) {
         ret = [self createFromXMLElement:xml.rootXMLElement];
     } else {

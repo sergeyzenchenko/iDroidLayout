@@ -45,13 +45,13 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
 
 @interface IDLGradientDrawableConstantState ()
 
-@property (nonatomic, retain) NSArray *colors;
-@property (nonatomic, retain) NSArray *cgColors;
+@property (nonatomic, strong) NSArray *colors;
+@property (nonatomic, strong) NSArray *cgColors;
 @property (nonatomic, assign) CGFloat *colorPositions;
 @property (nonatomic, assign) UIEdgeInsets padding;
 @property (nonatomic, assign) BOOL hasPadding;
 @property (nonatomic, assign) CGFloat strokeWidth;
-@property (nonatomic, retain) UIColor *strokeColor;
+@property (nonatomic, strong) UIColor *strokeColor;
 @property (nonatomic, assign) CGFloat dashWidth;
 @property (nonatomic, assign) CGFloat dashGap;
 
@@ -76,12 +76,9 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
 @implementation IDLGradientDrawableConstantState
 
 - (void)dealloc {
-    self.colors = nil;
     if (self.colorPositions != NULL) {
         free(self.colorPositions);
     }
-    self.cgColors = nil;
-    self.strokeColor = nil;
     if (_colorSpace != NULL) {
         CGColorSpaceRelease(_colorSpace);
         _colorSpace = NULL;
@@ -90,7 +87,6 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
         CGGradientRelease(_gradient);
         _gradient = NULL;
     }
-    [super dealloc];
 }
 
 - (id)initWithState:(IDLGradientDrawableConstantState *)state {
@@ -99,7 +95,6 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
         if (state != nil) {
             NSArray *colors = [[NSArray alloc] initWithArray:state.colors];
             self.colors = colors;
-            [colors release];
             
             if (state.colorPositions != NULL) {
                 self.colorPositions = malloc([self.colors count] * sizeof(CGFloat));
@@ -110,7 +105,6 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
         
             NSArray *cgColors = [[NSArray alloc] initWithArray:state.cgColors];
             self.cgColors = cgColors;
-            [cgColors release];
             self.padding = state.padding;
             self.hasPadding = state.hasPadding;
             self.strokeWidth = state.strokeWidth;
@@ -148,7 +142,7 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
         for (UIColor *c in self.colors) {
             CGColorRef cgColor = [c CGColor];
             if (cgColor != NULL) {
-                [cgColors addObject:(id)cgColor];
+                [cgColors addObject:(__bridge id)cgColor];
             }
         }
         _cgColors = cgColors;
@@ -167,23 +161,18 @@ BOOL IDLGradientDrawableCornerRadiusEqualsCornerRadius(IDLGradientDrawableCorner
 
 @interface IDLGradientDrawable ()
 
-@property (nonatomic, retain) IDLGradientDrawableConstantState *internalConstantState;
+@property (nonatomic, strong) IDLGradientDrawableConstantState *internalConstantState;
 
 @end
 
 @implementation IDLGradientDrawable
 
-- (void)dealloc {
-    self.internalConstantState = nil;
-    [super dealloc];
-}
 
 - (id)initWithState:(IDLGradientDrawableConstantState *)state {
     self = [super init];
     if (self) {
         IDLGradientDrawableConstantState *s = [[IDLGradientDrawableConstantState alloc] initWithState:state];
         self.internalConstantState = s;
-        [s release];
     }
     return self;
 }

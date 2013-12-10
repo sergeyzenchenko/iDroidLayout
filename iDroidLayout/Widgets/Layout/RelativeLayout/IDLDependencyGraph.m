@@ -15,12 +15,6 @@
 
 @synthesize keyNodes = _keyNodes;
 
-- (void)dealloc {
-	[_nodes release];
-    [_keyNodes release];
-    [_roots release];
-	[super dealloc];
-}
 
 
 - (id)init {

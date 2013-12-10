@@ -55,7 +55,6 @@
         [center removeObserver:self name:UITextViewTextDidBeginEditingNotification object:nil];
         [center removeObserver:self name:UITextViewTextDidEndEditingNotification object:nil];
     }
-	[super dealloc];
 }
 
 
@@ -68,12 +67,10 @@
 }
 
 - (void)addSubview:(UIView *)view {
-    [view retain];
     for (UIView *subviews in [self subviews]) {
         [subviews removeFromSuperview];
     }
     [super addSubview:view];
-    [view release];
 }
 
 - (void)onLayoutWithFrame:(CGRect)frame didFrameChange:(BOOL)changed {
@@ -102,15 +99,15 @@
     IDLMarginLayoutParams *lp = [[IDLMarginLayoutParams alloc] initWithWidth:IDLLayoutParamsSizeMatchParent height:IDLLayoutParamsSizeMatchParent];
     lp.width = IDLLayoutParamsSizeMatchParent;
     lp.height = IDLLayoutParamsSizeMatchParent;
-    return [lp autorelease];;
+    return lp;;
 }
 
 -(IDLLayoutParams *)generateLayoutParamsFromLayoutParams:(IDLLayoutParams *)layoutParams {
-    return [[[IDLMarginLayoutParams alloc] initWithLayoutParams:layoutParams] autorelease];
+    return [[IDLMarginLayoutParams alloc] initWithLayoutParams:layoutParams];
 }
 
 - (IDLLayoutParams *)generateLayoutParamsFromAttributes:(NSDictionary *)attrs {
-    return [[[IDLMarginLayoutParams alloc] initWithAttributes:attrs] autorelease];
+    return [[IDLMarginLayoutParams alloc] initWithAttributes:attrs];
 }
 
 - (void)layoutSubviews {
@@ -213,7 +210,6 @@
         if (url != nil) {
             IDLLayoutInflater *inflater = [[IDLLayoutInflater alloc] init];
             [inflater inflateURL:url intoRootView:self attachToRoot:TRUE];
-            [inflater release];
         }
     } else {
         [super setValue:value forUndefinedKey:key];

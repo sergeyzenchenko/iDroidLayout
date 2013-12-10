@@ -11,10 +11,6 @@
 
 @implementation IDLViewGroup
 
-- (void)dealloc {
-	
-	[super dealloc];
-}
 
 
 - (id)initWithAttributes:(NSDictionary *)attrs {

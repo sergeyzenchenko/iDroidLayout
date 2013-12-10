@@ -14,7 +14,7 @@
 
 @interface IDLBitmapDrawableConstantState ()
 
-@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) IDLViewContentGravity gravity;
 
 - (id)initWithState:(IDLBitmapDrawableConstantState *)state;
@@ -23,10 +23,6 @@
 
 @implementation IDLBitmapDrawableConstantState
 
-- (void)dealloc {
-    self.image = nil;
-    [super dealloc];
-}
 
 - (id)initWithState:(IDLBitmapDrawableConstantState *)state {
     self = [super init];
@@ -46,8 +42,8 @@
 
 @interface IDLBitmapDrawable ()
 
-@property (nonatomic, retain) IDLBitmapDrawableConstantState *internalConstantState;
-@property (nonatomic, retain) UIImage *scaledImageCache;
+@property (nonatomic, strong) IDLBitmapDrawableConstantState *internalConstantState;
+@property (nonatomic, strong) UIImage *scaledImageCache;
 
 @end
 
@@ -55,9 +51,6 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.internalConstantState = nil;
-    self.scaledImageCache = nil;
-    [super dealloc];
 }
 
 - (id)initWithImage:(UIImage *)image {
@@ -67,7 +60,6 @@
         IDLBitmapDrawableConstantState *state = [[IDLBitmapDrawableConstantState alloc] initWithState:nil];
         state.image = image;
         self.internalConstantState = state;
-        [state release];
     }
     return self;
 }
@@ -78,7 +70,6 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
         IDLBitmapDrawableConstantState *s = [[IDLBitmapDrawableConstantState alloc] initWithState:state];
         self.internalConstantState = s;
-        [s release];
     }
     return self;
 }

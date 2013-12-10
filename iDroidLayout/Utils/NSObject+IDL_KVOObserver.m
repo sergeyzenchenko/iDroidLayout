@@ -11,10 +11,10 @@
 
 @interface IDLKVOObserver : NSObject
 
-@property (readwrite, retain) NSString *identifier;
+@property (readwrite, strong) NSString *identifier;
 @property (readwrite, copy) IDLKVOObserverBlock observerBlock;
-@property (readwrite, assign) id object;
-@property (readwrite, retain) NSArray *keyPaths;
+@property (readwrite, weak) id object;
+@property (readwrite, strong) NSArray *keyPaths;
 
 @end
 
@@ -29,10 +29,6 @@
     for (NSString *keyPath in self.keyPaths) {
         [self.object removeObserver:self forKeyPath:keyPath];
     }
-    self.identifier = nil;
-    self.observerBlock = nil;
-    self.keyPaths = nil;
-    [super dealloc];
 }
 
 - (id)initWithIdentifier:(NSString *)identifier object:(id)obj keyPaths:(NSArray *)keyPaths options:(NSKeyValueObservingOptions)options observerBlock:(IDLKVOObserverBlock)block {
@@ -70,7 +66,7 @@ static char idl_kvoObserversKey;
     @synchronized(self) {
         NSMutableDictionary *array = objc_getAssociatedObject(self, &idl_kvoObserversKey);
         if (array == nil) {
-            array = [[[NSMutableDictionary alloc] init] autorelease];
+            array = [[NSMutableDictionary alloc] init];
             objc_setAssociatedObject(self,
                                      &idl_kvoObserversKey,
                                      array,
@@ -88,7 +84,6 @@ static char idl_kvoObserversKey;
 - (void)idl_addObserver:(IDLKVOObserverBlock)observer withIdentifier:(NSString *)identifier forKeyPaths:(NSArray *)keyPaths options:(NSKeyValueObservingOptions)options {
     IDLKVOObserver *observerObject = [[IDLKVOObserver alloc] initWithIdentifier:identifier object:self keyPaths:keyPaths options:options observerBlock:observer];
     [[self idl_kvoObservers] setObject:observerObject forKey:identifier];
-    [observerObject release];
 }
 
 - (BOOL)idl_hasObserverWithIdentifier:(NSString *)identifier {

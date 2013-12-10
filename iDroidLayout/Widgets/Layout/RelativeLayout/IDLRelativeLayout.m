@@ -23,19 +23,11 @@
 @synthesize ignoreGravity = _ignoreGravity;
 @synthesize gravity = _gravity;
 
-- (void)dealloc {
-	[_ignoreGravity release];
-    [_sortedHorizontalChildren release];
-    [_sortedVerticalChildren release];
-    [_graph release];
-    [_baselineView release];
-	[super dealloc];
-}
 
 - (void)setupFromAttributes:(NSDictionary *)attrs {
     [super setupFromAttributes:attrs];
     _gravity = [IDLGravity gravityFromAttribute:[attrs objectForKey:@"gravity"]];
-    _ignoreGravity = [[attrs objectForKey:@"ignoreGravity"] retain];
+    _ignoreGravity = [attrs objectForKey:@"ignoreGravity"];
 }
 
 - (id)initWithAttributes:(NSDictionary *)attrs {
@@ -64,15 +56,15 @@
 }
 
 - (IDLLayoutParams *)generateDefaultLayoutParams {
-    return [[[IDLRelativeLayoutLayoutParams alloc] initWithWidth:IDLLayoutParamsSizeWrapContent height:IDLLayoutParamsSizeWrapContent] autorelease];
+    return [[IDLRelativeLayoutLayoutParams alloc] initWithWidth:IDLLayoutParamsSizeWrapContent height:IDLLayoutParamsSizeWrapContent];
 }
 
 - (IDLLayoutParams *)generateLayoutParamsFromAttributes:(NSDictionary *)attrs {
-    return [[[IDLRelativeLayoutLayoutParams alloc] initWithAttributes:attrs] autorelease];
+    return [[IDLRelativeLayoutLayoutParams alloc] initWithAttributes:attrs];
 }
 
 - (IDLLayoutParams *)generateLayoutParamsFromLayouParams:(IDLLayoutParams *)lp {
-    return [[[IDLRelativeLayoutLayoutParams alloc] initWithLayoutParams:lp] autorelease];
+    return [[IDLRelativeLayoutLayoutParams alloc] initWithLayoutParams:lp];
 }
 
 - (void)sortChildren {
@@ -487,12 +479,11 @@
     }
     
     if (_baselineView == nil) {
-        _baselineView = [child retain];
+        _baselineView = child;
     } else {
         IDLRelativeLayoutLayoutParams *lp = (IDLRelativeLayoutLayoutParams *)_baselineView.layoutParams;
         if (params.top < lp.top || (params.top == lp.top && params.left < lp.left)) {
-            [_baselineView release];
-            _baselineView = [child retain];
+            _baselineView = child;
         }
     }
 }

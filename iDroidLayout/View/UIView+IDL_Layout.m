@@ -306,7 +306,6 @@ static char visibilityKey;
                              &minSizeKey,
                              v,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [v release];
 }
 
 - (CGSize)suggestedMinimumSize {
@@ -320,7 +319,6 @@ static char visibilityKey;
                              &measuredSizeKey,
                              value,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [value release];
 }
 
 - (IDLLayoutMeasuredSize)measuredDimensionSize {

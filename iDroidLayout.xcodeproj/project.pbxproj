@@ -103,7 +103,6 @@
 		79642CD41603C5DB0095D5A2 /* mainCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 79642CC91603C5DB0095D5A2 /* mainCell.xml */; };
 		79642CD51603C5DB0095D5A2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642CCB1603C5DB0095D5A2 /* MainViewController.m */; };
 		79642CD61603C5DB0095D5A2 /* scrollviews.xml in Resources */ = {isa = PBXBuildFile; fileRef = 79642CCC1603C5DB0095D5A2 /* scrollviews.xml */; };
-		79642CDA1603CA1D0095D5A2 /* iDroidLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79642CD81603CA1D0095D5A2 /* iDroidLayout.framework */; };
 		79642CE21603D0620095D5A2 /* IDLLayoutInflaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642CE11603D0620095D5A2 /* IDLLayoutInflaterTest.m */; };
 		79642CE51603D1B20095D5A2 /* testLayout1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 79642CE41603D1B20095D5A2 /* testLayout1.xml */; };
 		79642CEB1603D3F20095D5A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79642CEA1603D3F20095D5A2 /* UIKit.framework */; };
@@ -205,17 +204,161 @@
 		79E43380166A2E7B00E49114 /* includeContainer.xml in Resources */ = {isa = PBXBuildFile; fileRef = 79E4337F166A2E7B00E49114 /* includeContainer.xml */; };
 		79E43382166A2E8A00E49114 /* includeChild1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 79E43381166A2E8900E49114 /* includeChild1.xml */; };
 		79E43384166A2F4C00E49114 /* includeChild2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 79E43383166A2F4C00E49114 /* includeChild2.xml */; };
+		ADB0CFC8185799E5003DAF53 /* IDLBitmapDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718ADA167FAC9B00414CCE /* IDLBitmapDrawable.h */; };
+		ADB0CFC9185799E5003DAF53 /* IDLBitmapDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718ADB167FAC9B00414CCE /* IDLBitmapDrawable.m */; };
+		ADB0CFCA185799E5003DAF53 /* IDLClipDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B5BFA4169B6A3600FA1D94 /* IDLClipDrawable.h */; };
+		ADB0CFCB185799E5003DAF53 /* IDLClipDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B5BFA5169B6A3700FA1D94 /* IDLClipDrawable.m */; };
+		ADB0CFCC185799E5003DAF53 /* IDLColorDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718ADF167FAD9D00414CCE /* IDLColorDrawable.h */; };
+		ADB0CFCD185799E5003DAF53 /* IDLColorDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718AE0167FAD9D00414CCE /* IDLColorDrawable.m */; };
+		ADB0CFCE185799E5003DAF53 /* IDLDrawable+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718B00168091D300414CCE /* IDLDrawable+IDL_Internal.h */; };
+		ADB0CFCF185799E5003DAF53 /* IDLDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79269408167E0E0A0078EE37 /* IDLDrawable.h */; };
+		ADB0CFD0185799E5003DAF53 /* IDLDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79269409167E0E0A0078EE37 /* IDLDrawable.m */; };
+		ADB0CFD1185799E5003DAF53 /* IDLDrawableContainer+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718AF716808D5E00414CCE /* IDLDrawableContainer+IDL_Internal.h */; };
+		ADB0CFD2185799E5003DAF53 /* IDLDrawableContainer.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718AE7167FAE3D00414CCE /* IDLDrawableContainer.h */; };
+		ADB0CFD3185799E5003DAF53 /* IDLDrawableContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718AE8167FAE3D00414CCE /* IDLDrawableContainer.m */; };
+		ADB0CFD4185799E5003DAF53 /* IDLDrawableLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0BEC1690C87100EDACE3 /* IDLDrawableLayer.h */; };
+		ADB0CFD5185799E5003DAF53 /* IDLDrawableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0BED1690C87200EDACE3 /* IDLDrawableLayer.m */; };
+		ADB0CFD6185799E5003DAF53 /* IDLGradientDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718AF3167FAEB500414CCE /* IDLGradientDrawable.h */; };
+		ADB0CFD7185799E5003DAF53 /* IDLGradientDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718AF4167FAEB500414CCE /* IDLGradientDrawable.m */; };
+		ADB0CFD8185799E5003DAF53 /* IDLInsetDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718AE3167FADB900414CCE /* IDLInsetDrawable.h */; };
+		ADB0CFD9185799E5003DAF53 /* IDLInsetDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718AE4167FADB900414CCE /* IDLInsetDrawable.m */; };
+		ADB0CFDA185799E5003DAF53 /* IDLLayerDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718AEF167FAEA800414CCE /* IDLLayerDrawable.h */; };
+		ADB0CFDB185799E5003DAF53 /* IDLLayerDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718AF0167FAEA800414CCE /* IDLLayerDrawable.m */; };
+		ADB0CFDC185799E5003DAF53 /* IDLNinePatchDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718B0E1681DE5200414CCE /* IDLNinePatchDrawable.h */; };
+		ADB0CFDD185799E5003DAF53 /* IDLNinePatchDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718B0F1681DE5300414CCE /* IDLNinePatchDrawable.m */; };
+		ADB0CFDE185799E5003DAF53 /* IDLRotateDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B5BFBD16A2CFEF00FA1D94 /* IDLRotateDrawable.h */; };
+		ADB0CFDF185799E5003DAF53 /* IDLRotateDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B5BFBE16A2CFF100FA1D94 /* IDLRotateDrawable.m */; };
+		ADB0CFE0185799E5003DAF53 /* IDLShadowDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B5BFC116A5D36100FA1D94 /* IDLShadowDrawable.h */; };
+		ADB0CFE1185799E5003DAF53 /* IDLShadowDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B5BFC216A5D36300FA1D94 /* IDLShadowDrawable.m */; };
+		ADB0CFE2185799E5003DAF53 /* IDLStateListDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718AEB167FAE9400414CCE /* IDLStateListDrawable.h */; };
+		ADB0CFE3185799E5003DAF53 /* IDLStateListDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718AEC167FAE9400414CCE /* IDLStateListDrawable.m */; };
+		ADB0CFE4185799E5003DAF53 /* UIView+IDLDrawable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718B0416809FAE00414CCE /* UIView+IDLDrawable.h */; };
+		ADB0CFE5185799E5003DAF53 /* UIView+IDLDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718B0516809FAE00414CCE /* UIView+IDLDrawable.m */; };
+		ADB0CFE6185799E5003DAF53 /* IDLResourceManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 7981410A166ABABB00A63480 /* IDLResourceManager.h */; };
+		ADB0CFE7185799E5003DAF53 /* IDLResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7981410B166ABABB00A63480 /* IDLResourceManager.m */; };
+		ADB0CFE8185799E5003DAF53 /* IDLResourceManager+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B2A98B1704EF67001E4C6E /* IDLResourceManager+IDL_Internal.h */; };
+		ADB0CFE9185799E5003DAF53 /* NSDictionary+IDL_ResourceManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 7981410E166BD65800A63480 /* NSDictionary+IDL_ResourceManager.h */; };
+		ADB0CFEA185799E5003DAF53 /* NSDictionary+IDL_ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7981410F166BD65800A63480 /* NSDictionary+IDL_ResourceManager.m */; };
+		ADB0CFEB185799E5003DAF53 /* IDLColorStateItem+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983381674D2F200F844DB /* IDLColorStateItem+IDL_Internal.h */; };
+		ADB0CFEC185799E5003DAF53 /* IDLColorStateItem.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983391674D2F200F844DB /* IDLColorStateItem.h */; };
+		ADB0CFED185799E5003DAF53 /* IDLColorStateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B9833A1674D2F200F844DB /* IDLColorStateItem.m */; };
+		ADB0CFEE185799E5003DAF53 /* IDLColorStateList.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B9833B1674D2F200F844DB /* IDLColorStateList.h */; };
+		ADB0CFEF185799E5003DAF53 /* IDLColorStateList.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B9833C1674D2F200F844DB /* IDLColorStateList.m */; };
+		ADB0CFF0185799E5003DAF53 /* IDLDrawableStateItem+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B9833D1674D2F200F844DB /* IDLDrawableStateItem+IDL_Internal.h */; };
+		ADB0CFF1185799E5003DAF53 /* IDLDrawableStateItem.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B9833E1674D2F200F844DB /* IDLDrawableStateItem.h */; };
+		ADB0CFF2185799E5003DAF53 /* IDLDrawableStateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B9833F1674D2F200F844DB /* IDLDrawableStateItem.m */; };
+		ADB0CFF3185799E5003DAF53 /* IDLDrawableStateList.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983401674D2F200F844DB /* IDLDrawableStateList.h */; };
+		ADB0CFF4185799E5003DAF53 /* IDLDrawableStateList.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B983411674D2F200F844DB /* IDLDrawableStateList.m */; };
+		ADB0CFF5185799E5003DAF53 /* IDLResourceStateItem+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983421674D2F200F844DB /* IDLResourceStateItem+IDL_Internal.h */; };
+		ADB0CFF6185799E5003DAF53 /* IDLResourceStateItem.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983431674D2F200F844DB /* IDLResourceStateItem.h */; };
+		ADB0CFF7185799E5003DAF53 /* IDLResourceStateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B983441674D2F200F844DB /* IDLResourceStateItem.m */; };
+		ADB0CFF8185799E5003DAF53 /* IDLResourceStateList+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983451674D2F200F844DB /* IDLResourceStateList+IDL_Internal.h */; };
+		ADB0CFF9185799E5003DAF53 /* IDLResourceStateList.h in Sources */ = {isa = PBXBuildFile; fileRef = 79B983461674D2F200F844DB /* IDLResourceStateList.h */; };
+		ADB0CFFA185799E5003DAF53 /* IDLResourceStateList.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B983471674D2F200F844DB /* IDLResourceStateList.m */; };
+		ADB0CFFB185799E5003DAF53 /* IDLResourceValueSet.h in Sources */ = {isa = PBXBuildFile; fileRef = 79269318167D03FE0078EE37 /* IDLResourceValueSet.h */; };
+		ADB0CFFC185799E5003DAF53 /* IDLResourceValueSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 79269319167D03FE0078EE37 /* IDLResourceValueSet.m */; };
+		ADB0CFFD185799E5003DAF53 /* IDLStyle+IDL_Internal.h in Sources */ = {isa = PBXBuildFile; fileRef = 7926931A167D03FE0078EE37 /* IDLStyle+IDL_Internal.h */; };
+		ADB0CFFE185799E5003DAF53 /* IDLStyle.h in Sources */ = {isa = PBXBuildFile; fileRef = 7926931B167D03FE0078EE37 /* IDLStyle.h */; };
+		ADB0CFFF185799E5003DAF53 /* IDLStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7926931C167D03FE0078EE37 /* IDLStyle.m */; };
+		ADB0D000185799E5003DAF53 /* IDLStringArray.h in Sources */ = {isa = PBXBuildFile; fileRef = 79269322167D11970078EE37 /* IDLStringArray.h */; };
+		ADB0D001185799E5003DAF53 /* IDLStringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 79269323167D11970078EE37 /* IDLStringArray.m */; };
+		ADB0D002185799E5003DAF53 /* IDLXMLCache.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C121699B81000EDACE3 /* IDLXMLCache.h */; };
+		ADB0D003185799E5003DAF53 /* IDLXMLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C131699B81300EDACE3 /* IDLXMLCache.m */; };
+		ADB0D004185799E5003DAF53 /* iDroidLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C2E1603C5500095D5A2 /* iDroidLayout.h */; };
+		ADB0D005185799E5003DAF53 /* TBXML.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C301603C5500095D5A2 /* TBXML.h */; };
+		ADB0D006185799E5003DAF53 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C311603C5500095D5A2 /* TBXML.m */; };
+		ADB0D007185799E5003DAF53 /* IDLFinitePool.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C331603C5500095D5A2 /* IDLFinitePool.h */; };
+		ADB0D008185799E5003DAF53 /* IDLFinitePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C341603C5500095D5A2 /* IDLFinitePool.m */; };
+		ADB0D009185799E5003DAF53 /* IDLPool.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C351603C5500095D5A2 /* IDLPool.h */; };
+		ADB0D00A185799E5003DAF53 /* IDLPoolable.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C361603C5500095D5A2 /* IDLPoolable.h */; };
+		ADB0D00B185799E5003DAF53 /* IDLPoolableManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C371603C5500095D5A2 /* IDLPoolableManager.h */; };
+		ADB0D00C185799E5003DAF53 /* IDLPools.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C381603C5500095D5A2 /* IDLPools.h */; };
+		ADB0D00D185799E5003DAF53 /* IDLPools.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C391603C5500095D5A2 /* IDLPools.m */; };
+		ADB0D00E185799E5003DAF53 /* IDLSynchronizedPool.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C3A1603C5500095D5A2 /* IDLSynchronizedPool.h */; };
+		ADB0D00F185799E5003DAF53 /* IDLSynchronizedPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C3B1603C5500095D5A2 /* IDLSynchronizedPool.m */; };
+		ADB0D010185799E5003DAF53 /* UIColor+IDL_ColorParser.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C3C1603C5500095D5A2 /* UIColor+IDL_ColorParser.h */; };
+		ADB0D011185799E5003DAF53 /* UIColor+IDL_ColorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C3D1603C5500095D5A2 /* UIColor+IDL_ColorParser.m */; };
+		ADB0D012185799E5003DAF53 /* UIImage+IDL_FromColor.h in Sources */ = {isa = PBXBuildFile; fileRef = 796E1DB216735B1900E78B45 /* UIImage+IDL_FromColor.h */; };
+		ADB0D013185799E5003DAF53 /* UIImage+IDL_FromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 796E1DB316735B1900E78B45 /* UIImage+IDL_FromColor.m */; };
+		ADB0D014185799E5003DAF53 /* TBXML+IDL.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718B0A1680E10F00414CCE /* TBXML+IDL.h */; };
+		ADB0D015185799E5003DAF53 /* TBXML+IDL.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718B0B1680E10F00414CCE /* TBXML+IDL.m */; };
+		ADB0D016185799E5003DAF53 /* UIImage+IDLNinePatch.h in Sources */ = {isa = PBXBuildFile; fileRef = 79718B121681FF1100414CCE /* UIImage+IDLNinePatch.h */; };
+		ADB0D017185799E5003DAF53 /* UIImage+IDLNinePatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 79718B131681FF1100414CCE /* UIImage+IDLNinePatch.m */; };
+		ADB0D018185799E5003DAF53 /* NSObject+IDL_KVOObserver.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0ABB1684AFF200EDACE3 /* NSObject+IDL_KVOObserver.h */; };
+		ADB0D019185799E5003DAF53 /* NSObject+IDL_KVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0ABC1684AFF200EDACE3 /* NSObject+IDL_KVOObserver.m */; };
+		ADB0D01A185799E5003DAF53 /* IDLGravity.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C3F1603C5500095D5A2 /* IDLGravity.h */; };
+		ADB0D01B185799E5003DAF53 /* IDLGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C401603C5500095D5A2 /* IDLGravity.m */; };
+		ADB0D01C185799E5003DAF53 /* IDLLayoutBridge.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C411603C5500095D5A2 /* IDLLayoutBridge.h */; };
+		ADB0D01D185799E5003DAF53 /* IDLLayoutBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C421603C5500095D5A2 /* IDLLayoutBridge.m */; };
+		ADB0D01E185799E5003DAF53 /* IDLLayoutParams.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C431603C5500095D5A2 /* IDLLayoutParams.h */; };
+		ADB0D01F185799E5003DAF53 /* IDLLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C441603C5500095D5A2 /* IDLLayoutParams.m */; };
+		ADB0D020185799E5003DAF53 /* IDLLayoutViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C451603C5500095D5A2 /* IDLLayoutViewController.h */; };
+		ADB0D021185799E5003DAF53 /* IDLLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C461603C5500095D5A2 /* IDLLayoutViewController.m */; };
+		ADB0D022185799E5003DAF53 /* IDLMarginLayoutParams.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C471603C5500095D5A2 /* IDLMarginLayoutParams.h */; };
+		ADB0D023185799E5003DAF53 /* IDLMarginLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C481603C5500095D5A2 /* IDLMarginLayoutParams.m */; };
+		ADB0D024185799E5003DAF53 /* IDLTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C491603C5500095D5A2 /* IDLTableViewCell.h */; };
+		ADB0D025185799E5003DAF53 /* IDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C4A1603C5500095D5A2 /* IDLTableViewCell.m */; };
+		ADB0D026185799E5003DAF53 /* IDLViewGroup.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C4B1603C5500095D5A2 /* IDLViewGroup.h */; };
+		ADB0D027185799E5003DAF53 /* IDLViewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C4C1603C5500095D5A2 /* IDLViewGroup.m */; };
+		ADB0D028185799E5003DAF53 /* IDLBaseViewFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C4E1603C5500095D5A2 /* IDLBaseViewFactory.h */; };
+		ADB0D029185799E5003DAF53 /* IDLBaseViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C4F1603C5500095D5A2 /* IDLBaseViewFactory.m */; };
+		ADB0D02A185799E5003DAF53 /* IDLLayoutInflater.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C501603C5500095D5A2 /* IDLLayoutInflater.h */; };
+		ADB0D02B185799E5003DAF53 /* IDLLayoutInflater.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C511603C5500095D5A2 /* IDLLayoutInflater.m */; };
+		ADB0D02C185799E5003DAF53 /* IDLViewFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C521603C5500095D5A2 /* IDLViewFactory.h */; };
+		ADB0D02D185799E5003DAF53 /* UIView+IDL_Layout.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C531603C5500095D5A2 /* UIView+IDL_Layout.h */; };
+		ADB0D02E185799E5003DAF53 /* UIView+IDL_Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C541603C5500095D5A2 /* UIView+IDL_Layout.m */; };
+		ADB0D02F185799E5003DAF53 /* UIView+IDL_ViewGroup.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C551603C5500095D5A2 /* UIView+IDL_ViewGroup.h */; };
+		ADB0D030185799E5003DAF53 /* UIView+IDL_ViewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C561603C5500095D5A2 /* UIView+IDL_ViewGroup.m */; };
+		ADB0D031185799E5003DAF53 /* UIButton+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C591603C5500095D5A2 /* UIButton+IDL_View.h */; };
+		ADB0D032185799E5003DAF53 /* UIButton+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C5A1603C5500095D5A2 /* UIButton+IDL_View.m */; };
+		ADB0D033185799E5003DAF53 /* UIControl+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C5B1603C5500095D5A2 /* UIControl+IDL_View.h */; };
+		ADB0D034185799E5003DAF53 /* UIControl+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C5C1603C5500095D5A2 /* UIControl+IDL_View.m */; };
+		ADB0D035185799E5003DAF53 /* UIImageView+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C5D1603C5500095D5A2 /* UIImageView+IDL_View.h */; };
+		ADB0D036185799E5003DAF53 /* UIImageView+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C5E1603C5500095D5A2 /* UIImageView+IDL_View.m */; };
+		ADB0D037185799E5003DAF53 /* UILabel+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C5F1603C5500095D5A2 /* UILabel+IDL_View.h */; };
+		ADB0D038185799E5003DAF53 /* UILabel+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C601603C5500095D5A2 /* UILabel+IDL_View.m */; };
+		ADB0D039185799E5003DAF53 /* UINavigationBar+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 798140F8166A87C200A63480 /* UINavigationBar+IDL_View.h */; };
+		ADB0D03A185799E5003DAF53 /* UINavigationBar+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 798140F9166A87C200A63480 /* UINavigationBar+IDL_View.m */; };
+		ADB0D03B185799E5003DAF53 /* UIScrollView+IDL_ViewGroup.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C611603C5500095D5A2 /* UIScrollView+IDL_ViewGroup.h */; };
+		ADB0D03C185799E5003DAF53 /* UIScrollView+IDL_ViewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C621603C5500095D5A2 /* UIScrollView+IDL_ViewGroup.m */; };
+		ADB0D03D185799E5003DAF53 /* UISearchBar+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79814101166A8DC500A63480 /* UISearchBar+IDL_View.h */; };
+		ADB0D03E185799E5003DAF53 /* UISearchBar+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79814102166A8DC500A63480 /* UISearchBar+IDL_View.m */; };
+		ADB0D03F185799E5003DAF53 /* UISwitch+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79814105166A8F3C00A63480 /* UISwitch+IDL_View.h */; };
+		ADB0D040185799E5003DAF53 /* UISwitch+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79814106166A8F3D00A63480 /* UISwitch+IDL_View.m */; };
+		ADB0D041185799E5003DAF53 /* UIToolbar+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 798140FD166A8A5700A63480 /* UIToolbar+IDL_View.h */; };
+		ADB0D042185799E5003DAF53 /* UIToolbar+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 798140FE166A8A5700A63480 /* UIToolbar+IDL_View.m */; };
+		ADB0D043185799E5003DAF53 /* UIWebView+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C631603C5500095D5A2 /* UIWebView+IDL_View.h */; };
+		ADB0D044185799E5003DAF53 /* UIWebView+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C641603C5500095D5A2 /* UIWebView+IDL_View.m */; };
+		ADB0D045185799E5003DAF53 /* UITextView+IDL_View.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C08169605A600EDACE3 /* UITextView+IDL_View.h */; };
+		ADB0D046185799E5003DAF53 /* UITextView+IDL_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C09169605A700EDACE3 /* UITextView+IDL_View.m */; };
+		ADB0D047185799E5003DAF53 /* IDLButton.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C0C1698A56D00EDACE3 /* IDLButton.h */; };
+		ADB0D048185799E5003DAF53 /* IDLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C0D1698A56D00EDACE3 /* IDLButton.m */; };
+		ADB0D049185799E5003DAF53 /* IDLEditText.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C001696010100EDACE3 /* IDLEditText.h */; };
+		ADB0D04A185799E5003DAF53 /* IDLEditText.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C011696010100EDACE3 /* IDLEditText.m */; };
+		ADB0D04B185799E5003DAF53 /* IDLTextArea.h in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C04169604A000EDACE3 /* IDLTextArea.h */; };
+		ADB0D04C185799E5003DAF53 /* IDLTextArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE0C05169604A100EDACE3 /* IDLTextArea.m */; };
+		ADB0D04D185799E5003DAF53 /* IDLTextView.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C651603C5500095D5A2 /* IDLTextView.h */; };
+		ADB0D04E185799E5003DAF53 /* IDLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C661603C5500095D5A2 /* IDLTextView.m */; };
+		ADB0D04F185799E5003DAF53 /* IDLFrameLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C691603C5500095D5A2 /* IDLFrameLayout.h */; };
+		ADB0D050185799E5003DAF53 /* IDLFrameLayoutLayoutParams.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C6A1603C5500095D5A2 /* IDLFrameLayoutLayoutParams.h */; };
+		ADB0D051185799E5003DAF53 /* IDLFrameLayoutLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C6B1603C5500095D5A2 /* IDLFrameLayoutLayoutParams.m */; };
+		ADB0D052185799E5003DAF53 /* IDLLayouts.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C6D1603C5500095D5A2 /* IDLLayouts.h */; };
+		ADB0D053185799E5003DAF53 /* IDLLinearLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C6F1603C5500095D5A2 /* IDLLinearLayout.h */; };
+		ADB0D054185799E5003DAF53 /* IDLLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C701603C5500095D5A2 /* IDLLinearLayout.m */; };
+		ADB0D055185799E5003DAF53 /* IDLLinearLayoutLayoutParams.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C711603C5500095D5A2 /* IDLLinearLayoutLayoutParams.h */; };
+		ADB0D056185799E5003DAF53 /* IDLLinearLayoutLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C721603C5500095D5A2 /* IDLLinearLayoutLayoutParams.m */; };
+		ADB0D057185799E5003DAF53 /* IDLDependencyGraph.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C741603C5500095D5A2 /* IDLDependencyGraph.h */; };
+		ADB0D058185799E5003DAF53 /* IDLDependencyGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C751603C5500095D5A2 /* IDLDependencyGraph.m */; };
+		ADB0D059185799E5003DAF53 /* IDLDependencyGraphNode.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C761603C5500095D5A2 /* IDLDependencyGraphNode.h */; };
+		ADB0D05A185799E5003DAF53 /* IDLDependencyGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C771603C5500095D5A2 /* IDLDependencyGraphNode.m */; };
+		ADB0D05B185799E5003DAF53 /* IDLRelativeLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C781603C5500095D5A2 /* IDLRelativeLayout.h */; };
+		ADB0D05C185799E5003DAF53 /* IDLRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C791603C5500095D5A2 /* IDLRelativeLayout.m */; };
+		ADB0D05D185799E5003DAF53 /* IDLRelativeLayoutLayoutParams.h in Sources */ = {isa = PBXBuildFile; fileRef = 79642C7A1603C5500095D5A2 /* IDLRelativeLayoutLayoutParams.h */; };
+		ADB0D05E185799E5003DAF53 /* IDLRelativeLayoutLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 79642C7B1603C5500095D5A2 /* IDLRelativeLayoutLayoutParams.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		79642BFF1603C4A30095D5A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 79642BDC1603C4A20095D5A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 79642BE81603C4A20095D5A2;
-			remoteInfo = iDroidLayout;
-		};
-		79642C2C1603C4F80095D5A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 79642BDC1603C4A20095D5A2 /* Project object */;
 			proxyType = 1;
@@ -467,7 +610,6 @@
 				79642C191603C4E80095D5A2 /* UIKit.framework in Frameworks */,
 				79642C1A1603C4E80095D5A2 /* Foundation.framework in Frameworks */,
 				79642C1C1603C4E80095D5A2 /* CoreGraphics.framework in Frameworks */,
-				79642CDA1603CA1D0095D5A2 /* iDroidLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,7 +1189,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				79642C2D1603C4F80095D5A2 /* PBXTargetDependency */,
 			);
 			name = iDroidLayoutExample;
 			productName = iDroidLayoutExample;
@@ -1280,6 +1421,157 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB0CFC8185799E5003DAF53 /* IDLBitmapDrawable.h in Sources */,
+				ADB0CFC9185799E5003DAF53 /* IDLBitmapDrawable.m in Sources */,
+				ADB0CFCA185799E5003DAF53 /* IDLClipDrawable.h in Sources */,
+				ADB0CFCB185799E5003DAF53 /* IDLClipDrawable.m in Sources */,
+				ADB0CFCC185799E5003DAF53 /* IDLColorDrawable.h in Sources */,
+				ADB0CFCD185799E5003DAF53 /* IDLColorDrawable.m in Sources */,
+				ADB0CFCE185799E5003DAF53 /* IDLDrawable+IDL_Internal.h in Sources */,
+				ADB0CFCF185799E5003DAF53 /* IDLDrawable.h in Sources */,
+				ADB0CFD0185799E5003DAF53 /* IDLDrawable.m in Sources */,
+				ADB0CFD1185799E5003DAF53 /* IDLDrawableContainer+IDL_Internal.h in Sources */,
+				ADB0CFD2185799E5003DAF53 /* IDLDrawableContainer.h in Sources */,
+				ADB0CFD3185799E5003DAF53 /* IDLDrawableContainer.m in Sources */,
+				ADB0CFD4185799E5003DAF53 /* IDLDrawableLayer.h in Sources */,
+				ADB0CFD5185799E5003DAF53 /* IDLDrawableLayer.m in Sources */,
+				ADB0CFD6185799E5003DAF53 /* IDLGradientDrawable.h in Sources */,
+				ADB0CFD7185799E5003DAF53 /* IDLGradientDrawable.m in Sources */,
+				ADB0CFD8185799E5003DAF53 /* IDLInsetDrawable.h in Sources */,
+				ADB0CFD9185799E5003DAF53 /* IDLInsetDrawable.m in Sources */,
+				ADB0CFDA185799E5003DAF53 /* IDLLayerDrawable.h in Sources */,
+				ADB0CFDB185799E5003DAF53 /* IDLLayerDrawable.m in Sources */,
+				ADB0CFDC185799E5003DAF53 /* IDLNinePatchDrawable.h in Sources */,
+				ADB0CFDD185799E5003DAF53 /* IDLNinePatchDrawable.m in Sources */,
+				ADB0CFDE185799E5003DAF53 /* IDLRotateDrawable.h in Sources */,
+				ADB0CFDF185799E5003DAF53 /* IDLRotateDrawable.m in Sources */,
+				ADB0CFE0185799E5003DAF53 /* IDLShadowDrawable.h in Sources */,
+				ADB0CFE1185799E5003DAF53 /* IDLShadowDrawable.m in Sources */,
+				ADB0CFE2185799E5003DAF53 /* IDLStateListDrawable.h in Sources */,
+				ADB0CFE3185799E5003DAF53 /* IDLStateListDrawable.m in Sources */,
+				ADB0CFE4185799E5003DAF53 /* UIView+IDLDrawable.h in Sources */,
+				ADB0CFE5185799E5003DAF53 /* UIView+IDLDrawable.m in Sources */,
+				ADB0CFE6185799E5003DAF53 /* IDLResourceManager.h in Sources */,
+				ADB0CFE7185799E5003DAF53 /* IDLResourceManager.m in Sources */,
+				ADB0CFE8185799E5003DAF53 /* IDLResourceManager+IDL_Internal.h in Sources */,
+				ADB0CFE9185799E5003DAF53 /* NSDictionary+IDL_ResourceManager.h in Sources */,
+				ADB0CFEA185799E5003DAF53 /* NSDictionary+IDL_ResourceManager.m in Sources */,
+				ADB0CFEB185799E5003DAF53 /* IDLColorStateItem+IDL_Internal.h in Sources */,
+				ADB0CFEC185799E5003DAF53 /* IDLColorStateItem.h in Sources */,
+				ADB0CFED185799E5003DAF53 /* IDLColorStateItem.m in Sources */,
+				ADB0CFEE185799E5003DAF53 /* IDLColorStateList.h in Sources */,
+				ADB0CFEF185799E5003DAF53 /* IDLColorStateList.m in Sources */,
+				ADB0CFF0185799E5003DAF53 /* IDLDrawableStateItem+IDL_Internal.h in Sources */,
+				ADB0CFF1185799E5003DAF53 /* IDLDrawableStateItem.h in Sources */,
+				ADB0CFF2185799E5003DAF53 /* IDLDrawableStateItem.m in Sources */,
+				ADB0CFF3185799E5003DAF53 /* IDLDrawableStateList.h in Sources */,
+				ADB0CFF4185799E5003DAF53 /* IDLDrawableStateList.m in Sources */,
+				ADB0CFF5185799E5003DAF53 /* IDLResourceStateItem+IDL_Internal.h in Sources */,
+				ADB0CFF6185799E5003DAF53 /* IDLResourceStateItem.h in Sources */,
+				ADB0CFF7185799E5003DAF53 /* IDLResourceStateItem.m in Sources */,
+				ADB0CFF8185799E5003DAF53 /* IDLResourceStateList+IDL_Internal.h in Sources */,
+				ADB0CFF9185799E5003DAF53 /* IDLResourceStateList.h in Sources */,
+				ADB0CFFA185799E5003DAF53 /* IDLResourceStateList.m in Sources */,
+				ADB0CFFB185799E5003DAF53 /* IDLResourceValueSet.h in Sources */,
+				ADB0CFFC185799E5003DAF53 /* IDLResourceValueSet.m in Sources */,
+				ADB0CFFD185799E5003DAF53 /* IDLStyle+IDL_Internal.h in Sources */,
+				ADB0CFFE185799E5003DAF53 /* IDLStyle.h in Sources */,
+				ADB0CFFF185799E5003DAF53 /* IDLStyle.m in Sources */,
+				ADB0D000185799E5003DAF53 /* IDLStringArray.h in Sources */,
+				ADB0D001185799E5003DAF53 /* IDLStringArray.m in Sources */,
+				ADB0D002185799E5003DAF53 /* IDLXMLCache.h in Sources */,
+				ADB0D003185799E5003DAF53 /* IDLXMLCache.m in Sources */,
+				ADB0D004185799E5003DAF53 /* iDroidLayout.h in Sources */,
+				ADB0D005185799E5003DAF53 /* TBXML.h in Sources */,
+				ADB0D006185799E5003DAF53 /* TBXML.m in Sources */,
+				ADB0D007185799E5003DAF53 /* IDLFinitePool.h in Sources */,
+				ADB0D008185799E5003DAF53 /* IDLFinitePool.m in Sources */,
+				ADB0D009185799E5003DAF53 /* IDLPool.h in Sources */,
+				ADB0D00A185799E5003DAF53 /* IDLPoolable.h in Sources */,
+				ADB0D00B185799E5003DAF53 /* IDLPoolableManager.h in Sources */,
+				ADB0D00C185799E5003DAF53 /* IDLPools.h in Sources */,
+				ADB0D00D185799E5003DAF53 /* IDLPools.m in Sources */,
+				ADB0D00E185799E5003DAF53 /* IDLSynchronizedPool.h in Sources */,
+				ADB0D00F185799E5003DAF53 /* IDLSynchronizedPool.m in Sources */,
+				ADB0D010185799E5003DAF53 /* UIColor+IDL_ColorParser.h in Sources */,
+				ADB0D011185799E5003DAF53 /* UIColor+IDL_ColorParser.m in Sources */,
+				ADB0D012185799E5003DAF53 /* UIImage+IDL_FromColor.h in Sources */,
+				ADB0D013185799E5003DAF53 /* UIImage+IDL_FromColor.m in Sources */,
+				ADB0D014185799E5003DAF53 /* TBXML+IDL.h in Sources */,
+				ADB0D015185799E5003DAF53 /* TBXML+IDL.m in Sources */,
+				ADB0D016185799E5003DAF53 /* UIImage+IDLNinePatch.h in Sources */,
+				ADB0D017185799E5003DAF53 /* UIImage+IDLNinePatch.m in Sources */,
+				ADB0D018185799E5003DAF53 /* NSObject+IDL_KVOObserver.h in Sources */,
+				ADB0D019185799E5003DAF53 /* NSObject+IDL_KVOObserver.m in Sources */,
+				ADB0D01A185799E5003DAF53 /* IDLGravity.h in Sources */,
+				ADB0D01B185799E5003DAF53 /* IDLGravity.m in Sources */,
+				ADB0D01C185799E5003DAF53 /* IDLLayoutBridge.h in Sources */,
+				ADB0D01D185799E5003DAF53 /* IDLLayoutBridge.m in Sources */,
+				ADB0D01E185799E5003DAF53 /* IDLLayoutParams.h in Sources */,
+				ADB0D01F185799E5003DAF53 /* IDLLayoutParams.m in Sources */,
+				ADB0D020185799E5003DAF53 /* IDLLayoutViewController.h in Sources */,
+				ADB0D021185799E5003DAF53 /* IDLLayoutViewController.m in Sources */,
+				ADB0D022185799E5003DAF53 /* IDLMarginLayoutParams.h in Sources */,
+				ADB0D023185799E5003DAF53 /* IDLMarginLayoutParams.m in Sources */,
+				ADB0D024185799E5003DAF53 /* IDLTableViewCell.h in Sources */,
+				ADB0D025185799E5003DAF53 /* IDLTableViewCell.m in Sources */,
+				ADB0D026185799E5003DAF53 /* IDLViewGroup.h in Sources */,
+				ADB0D027185799E5003DAF53 /* IDLViewGroup.m in Sources */,
+				ADB0D028185799E5003DAF53 /* IDLBaseViewFactory.h in Sources */,
+				ADB0D029185799E5003DAF53 /* IDLBaseViewFactory.m in Sources */,
+				ADB0D02A185799E5003DAF53 /* IDLLayoutInflater.h in Sources */,
+				ADB0D02B185799E5003DAF53 /* IDLLayoutInflater.m in Sources */,
+				ADB0D02C185799E5003DAF53 /* IDLViewFactory.h in Sources */,
+				ADB0D02D185799E5003DAF53 /* UIView+IDL_Layout.h in Sources */,
+				ADB0D02E185799E5003DAF53 /* UIView+IDL_Layout.m in Sources */,
+				ADB0D02F185799E5003DAF53 /* UIView+IDL_ViewGroup.h in Sources */,
+				ADB0D030185799E5003DAF53 /* UIView+IDL_ViewGroup.m in Sources */,
+				ADB0D031185799E5003DAF53 /* UIButton+IDL_View.h in Sources */,
+				ADB0D032185799E5003DAF53 /* UIButton+IDL_View.m in Sources */,
+				ADB0D033185799E5003DAF53 /* UIControl+IDL_View.h in Sources */,
+				ADB0D034185799E5003DAF53 /* UIControl+IDL_View.m in Sources */,
+				ADB0D035185799E5003DAF53 /* UIImageView+IDL_View.h in Sources */,
+				ADB0D036185799E5003DAF53 /* UIImageView+IDL_View.m in Sources */,
+				ADB0D037185799E5003DAF53 /* UILabel+IDL_View.h in Sources */,
+				ADB0D038185799E5003DAF53 /* UILabel+IDL_View.m in Sources */,
+				ADB0D039185799E5003DAF53 /* UINavigationBar+IDL_View.h in Sources */,
+				ADB0D03A185799E5003DAF53 /* UINavigationBar+IDL_View.m in Sources */,
+				ADB0D03B185799E5003DAF53 /* UIScrollView+IDL_ViewGroup.h in Sources */,
+				ADB0D03C185799E5003DAF53 /* UIScrollView+IDL_ViewGroup.m in Sources */,
+				ADB0D03D185799E5003DAF53 /* UISearchBar+IDL_View.h in Sources */,
+				ADB0D03E185799E5003DAF53 /* UISearchBar+IDL_View.m in Sources */,
+				ADB0D03F185799E5003DAF53 /* UISwitch+IDL_View.h in Sources */,
+				ADB0D040185799E5003DAF53 /* UISwitch+IDL_View.m in Sources */,
+				ADB0D041185799E5003DAF53 /* UIToolbar+IDL_View.h in Sources */,
+				ADB0D042185799E5003DAF53 /* UIToolbar+IDL_View.m in Sources */,
+				ADB0D043185799E5003DAF53 /* UIWebView+IDL_View.h in Sources */,
+				ADB0D044185799E5003DAF53 /* UIWebView+IDL_View.m in Sources */,
+				ADB0D045185799E5003DAF53 /* UITextView+IDL_View.h in Sources */,
+				ADB0D046185799E5003DAF53 /* UITextView+IDL_View.m in Sources */,
+				ADB0D047185799E5003DAF53 /* IDLButton.h in Sources */,
+				ADB0D048185799E5003DAF53 /* IDLButton.m in Sources */,
+				ADB0D049185799E5003DAF53 /* IDLEditText.h in Sources */,
+				ADB0D04A185799E5003DAF53 /* IDLEditText.m in Sources */,
+				ADB0D04B185799E5003DAF53 /* IDLTextArea.h in Sources */,
+				ADB0D04C185799E5003DAF53 /* IDLTextArea.m in Sources */,
+				ADB0D04D185799E5003DAF53 /* IDLTextView.h in Sources */,
+				ADB0D04E185799E5003DAF53 /* IDLTextView.m in Sources */,
+				ADB0D04F185799E5003DAF53 /* IDLFrameLayout.h in Sources */,
+				ADB0D050185799E5003DAF53 /* IDLFrameLayoutLayoutParams.h in Sources */,
+				ADB0D051185799E5003DAF53 /* IDLFrameLayoutLayoutParams.m in Sources */,
+				ADB0D052185799E5003DAF53 /* IDLLayouts.h in Sources */,
+				ADB0D053185799E5003DAF53 /* IDLLinearLayout.h in Sources */,
+				ADB0D054185799E5003DAF53 /* IDLLinearLayout.m in Sources */,
+				ADB0D055185799E5003DAF53 /* IDLLinearLayoutLayoutParams.h in Sources */,
+				ADB0D056185799E5003DAF53 /* IDLLinearLayoutLayoutParams.m in Sources */,
+				ADB0D057185799E5003DAF53 /* IDLDependencyGraph.h in Sources */,
+				ADB0D058185799E5003DAF53 /* IDLDependencyGraph.m in Sources */,
+				ADB0D059185799E5003DAF53 /* IDLDependencyGraphNode.h in Sources */,
+				ADB0D05A185799E5003DAF53 /* IDLDependencyGraphNode.m in Sources */,
+				ADB0D05B185799E5003DAF53 /* IDLRelativeLayout.h in Sources */,
+				ADB0D05C185799E5003DAF53 /* IDLRelativeLayout.m in Sources */,
+				ADB0D05D185799E5003DAF53 /* IDLRelativeLayoutLayoutParams.h in Sources */,
+				ADB0D05E185799E5003DAF53 /* IDLRelativeLayoutLayoutParams.m in Sources */,
 				79642C241603C4E80095D5A2 /* main.m in Sources */,
 				79642CD11603C5DB0095D5A2 /* FormularViewController.m in Sources */,
 				79642CD21603C5DB0095D5A2 /* IDLAppDelegate.m in Sources */,
@@ -1295,11 +1587,6 @@
 			isa = PBXTargetDependency;
 			target = 79642BE81603C4A20095D5A2 /* iDroidLayout */;
 			targetProxy = 79642BFF1603C4A30095D5A2 /* PBXContainerItemProxy */;
-		};
-		79642C2D1603C4F80095D5A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 79642BE81603C4A20095D5A2 /* iDroidLayout */;
-			targetProxy = 79642C2C1603C4F80095D5A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1351,7 +1638,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1369,7 +1656,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1481,6 +1768,7 @@
 		79642C2A1603C4E80095D5A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1489,7 +1777,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iDroidLayoutExample/iDroidLayout-Prefix.pch";
 				INFOPLIST_FILE = "iDroidLayoutExample/iDroidLayout-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1500,6 +1788,7 @@
 		79642C2B1603C4E80095D5A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1508,7 +1797,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iDroidLayoutExample/iDroidLayout-Prefix.pch";
 				INFOPLIST_FILE = "iDroidLayoutExample/iDroidLayout-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

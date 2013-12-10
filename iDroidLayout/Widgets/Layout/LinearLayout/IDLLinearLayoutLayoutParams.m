@@ -13,10 +13,6 @@
 @synthesize gravity = _gravity;
 @synthesize weight = _weight;
 
-- (void) dealloc {
-	
-	[super dealloc];
-}
 
 
 - (id)initWithWidth:(CGFloat)width height:(CGFloat)height {

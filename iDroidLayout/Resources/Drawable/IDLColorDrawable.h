@@ -12,7 +12,7 @@
 
 - (id)initWithColor:(UIColor *)color;
 
-@property (nonatomic, readonly) UIColor *color;
+@property (weak, nonatomic, readonly) UIColor *color;
 
 @end
 

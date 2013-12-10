@@ -13,7 +13,7 @@
 
 @interface IDLRotateDrawableConstantState ()
 
-@property (nonatomic, retain) IDLDrawable *drawable;
+@property (nonatomic, strong) IDLDrawable *drawable;
 @property (nonatomic, assign) CGPoint pivot;
 @property (nonatomic, assign) BOOL pivotXRelative;
 @property (nonatomic, assign) BOOL pivotYRelative;
@@ -27,8 +27,6 @@
 
 - (void)dealloc {
     self.drawable.delegate = nil;
-    self.drawable = nil;
-    [super dealloc];
 }
 
 - (id)initWithState:(IDLRotateDrawableConstantState *)state owner:(IDLRotateDrawable *)owner {
@@ -38,7 +36,6 @@
             IDLDrawable *copiedDrawable = [state.drawable copy];
             copiedDrawable.delegate = owner;
             self.drawable = copiedDrawable;
-            [copiedDrawable release];
             
             self.pivot = state.pivot;
             self.pivotXRelative = state.pivotXRelative;
@@ -57,23 +54,18 @@
 
 @interface IDLRotateDrawable ()
 
-@property (nonatomic, retain) IDLRotateDrawableConstantState *internalConstantState;
+@property (nonatomic, strong) IDLRotateDrawableConstantState *internalConstantState;
 
 @end
 
 @implementation IDLRotateDrawable
 
-- (void)dealloc {
-    self.internalConstantState = nil;
-    [super dealloc];
-}
 
 - (id)initWithState:(IDLRotateDrawableConstantState *)state {
     self = [super init];
     if (self) {
         IDLRotateDrawableConstantState *s = [[IDLRotateDrawableConstantState alloc] initWithState:state owner:self];
         self.internalConstantState = s;
-        [s release];
     }
     return self;
 }

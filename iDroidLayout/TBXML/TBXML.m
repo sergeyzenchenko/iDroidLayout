@@ -912,7 +912,6 @@
 	}
     
 #ifndef ARC_ENABLED
-    [super dealloc];
 #endif
 }
 
