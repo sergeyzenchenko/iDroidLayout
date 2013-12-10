@@ -19,8 +19,8 @@
 
 - (void)setupFromAttributes:(NSDictionary *)attrs {
     [super setupFromAttributes:attrs];
-    _gravity = [IDLGravity gravityFromAttribute:[attrs objectForKey:@"gravity"]];
-    NSString *orientationString = [attrs objectForKey:@"orientation"];
+    _gravity = [IDLGravity gravityFromAttribute:attrs[@"gravity"]];
+    NSString *orientationString = attrs[@"orientation"];
     if ([orientationString isEqualToString:@"horizontal"]) {
         _orientation = LinearLayoutOrientationHorizontal;
     } else {
@@ -85,7 +85,7 @@
         @throw [NSException exceptionWithName:@"RuntimeException" reason:@"mBaselineAlignedChildIndex of LinearLayout set to an index that is out of bounds." userInfo:nil];
     }
     
-    UIView *child = [[self subviews] objectAtIndex:_baselineAlignedChildIndex];
+    UIView *child = [self subviews][_baselineAlignedChildIndex];
     CGFloat childBaseline = child.baseline;
     
     if (childBaseline == -1) {
@@ -159,7 +159,7 @@
     uniformMeasureSpec.size = self.measuredSize.width;
     uniformMeasureSpec.mode = IDLLayoutMeasureSpecModeExactly;
     for (int i = 0; i< count; ++i) {
-        UIView *child = [[self subviews] objectAtIndex:i];
+        UIView *child = [self subviews][i];
         if (child.visibility == IDLViewVisibilityGone) {
             continue;
         }
@@ -217,7 +217,7 @@
     
     // See how tall everyone is. Also remember max width.
     for (int i = 0; i < count; ++i) {
-        UIView *child = [self.subviews objectAtIndex:i];
+        UIView *child = (self.subviews)[i];
         
         if (child.visibility == IDLViewVisibilityGone) {
             i += [self childrenSkipCountAfterChild:child atIndex:i];
@@ -316,7 +316,7 @@
         _totalLength = 0;
         
         for (int i = 0; i < count; ++i) {
-            UIView *child = [[self subviews] objectAtIndex:i];
+            UIView *child = [self subviews][i];
             
             if (child.visibility == IDLViewVisibilityGone) {
                 i += [self childrenSkipCountAfterChild:child atIndex:i];
@@ -354,7 +354,7 @@
         _totalLength = 0;
         
         for (int i = 0; i < count; ++i) {
-            UIView *child = [[self subviews] objectAtIndex:i];
+            UIView *child = [self subviews][i];
             
             if (child.visibility == IDLViewVisibilityGone) {
                 continue;
@@ -422,7 +422,7 @@
         // Children will have already been measured once.
         if (useLargestChild && widthMode == IDLLayoutMeasureSpecModeUnspecified) {
             for (int i = 0; i < count; i++) {
-                UIView *child = [[self subviews] objectAtIndex:i];
+                UIView *child = [self subviews][i];
                 
                 if (child.visibility == IDLViewVisibilityGone) {
                     continue;
@@ -470,7 +470,7 @@
     uniformMeasureSpec.size = self.measuredSize.height;
     uniformMeasureSpec.mode = IDLLayoutMeasureSpecModeExactly;
     for (int i = 0; i < count; ++i) {
-        UIView *child = [[self subviews] objectAtIndex:i];
+        UIView *child = [self subviews][i];
         
         if (child.visibility == IDLViewVisibilityGone) {
             continue;
@@ -534,7 +534,7 @@
     
     // See how wide everyone is. Also remember max height.
     for (int i = 0; i < count; ++i) {
-        UIView *child = [[self subviews] objectAtIndex:i];
+        UIView *child = [self subviews][i];
         
         if (child.visibility == IDLViewVisibilityGone) {
             i += [self childrenSkipCountAfterChild:child atIndex:i];
@@ -668,7 +668,7 @@
         _totalLength = 0;
         
         for (int i = 0; i < count; ++i) {
-            UIView *child = [[self subviews] objectAtIndex:i];
+            UIView *child = [self subviews][i];
             
             if (child.visibility == IDLViewVisibilityGone) {
                 i += [self childrenSkipCountAfterChild:child atIndex:i];
@@ -714,7 +714,7 @@
         _totalLength = 0;
         
         for (int i = 0; i < count; ++i) {
-            UIView *child = [[self subviews] objectAtIndex:i];
+            UIView *child = [self subviews][i];
             
             if (child.visibility == IDLViewVisibilityGone) {
                 continue;
@@ -817,7 +817,7 @@
         // Children will have already been measured once.
         if (useLargestChild && widthMode == IDLLayoutMeasureSpecModeUnspecified) {
             for (int i = 0; i < count; i++) {
-                UIView *child = [[self subviews] objectAtIndex:i];
+                UIView *child = [self subviews][i];
                 
                 if (child.visibility == IDLViewVisibilityGone) {
                     continue;
@@ -921,7 +921,7 @@
     }
     
     for (int i = 0; i < count; i++) {
-        UIView *child = [self.subviews objectAtIndex:i];
+        UIView *child = (self.subviews)[i];
         if (child.visibility != IDLViewVisibilityGone) {
             CGSize childSize = child.measuredSize;
             
@@ -998,7 +998,7 @@
     }
     
     for (NSInteger i = 0; i < count; i++) {
-        UIView *child = [self.subviews objectAtIndex:i];
+        UIView *child = (self.subviews)[i];
         if (child.visibility != IDLViewVisibilityGone) {
             
             CGSize childSize = child.measuredSize;

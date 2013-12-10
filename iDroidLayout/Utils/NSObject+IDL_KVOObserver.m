@@ -83,12 +83,12 @@ static char idl_kvoObserversKey;
 
 - (void)idl_addObserver:(IDLKVOObserverBlock)observer withIdentifier:(NSString *)identifier forKeyPaths:(NSArray *)keyPaths options:(NSKeyValueObservingOptions)options {
     IDLKVOObserver *observerObject = [[IDLKVOObserver alloc] initWithIdentifier:identifier object:self keyPaths:keyPaths options:options observerBlock:observer];
-    [[self idl_kvoObservers] setObject:observerObject forKey:identifier];
+    [self idl_kvoObservers][identifier] = observerObject;
 }
 
 - (BOOL)idl_hasObserverWithIdentifier:(NSString *)identifier {
     NSMutableDictionary *observers = [self idl_kvoObservers];
-    return [observers objectForKey:identifier] != nil;
+    return observers[identifier] != nil;
 }
 
 @end

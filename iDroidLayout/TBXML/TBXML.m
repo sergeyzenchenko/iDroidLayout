@@ -177,7 +177,7 @@
 
         if (!bundlePath) {
             if (error) {
-                NSDictionary * userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[aXMLFile stringByAppendingPathExtension:aFileExtension], NSFilePathErrorKey, nil];
+                NSDictionary * userInfo = @{NSFilePathErrorKey: [aXMLFile stringByAppendingPathExtension:aFileExtension]};
                 *error = [TBXML errorWithCode:D_TBXML_FILE_NOT_FOUND_IN_BUNDLE userInfo:userInfo];
             }
         } else {
@@ -257,7 +257,7 @@
 
 + (NSString*) elementName:(TBXMLElement*)aXMLElement {
 	if (nil == aXMLElement->name) return @"";
-	return [NSString stringWithCString:&aXMLElement->name[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLElement->name[0]);
 }
 
 + (NSString*) elementName:(TBXMLElement*)aXMLElement error:(NSError **)error {
@@ -273,12 +273,12 @@
         return @"";
     }
     
-	return [NSString stringWithCString:&aXMLElement->name[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLElement->name[0]);
 }
 
 + (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute {
 	if (nil == aXMLAttribute->name) return @"";
-	return [NSString stringWithCString:&aXMLAttribute->name[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLAttribute->name[0]);
 }
 
 + (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute error:(NSError **)error {
@@ -294,13 +294,13 @@
         return @"";
     }
     
-	return [NSString stringWithCString:&aXMLAttribute->name[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLAttribute->name[0]);
 }
 
 
 + (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute {
 	if (nil == aXMLAttribute->value) return @"";
-	return [NSString stringWithCString:&aXMLAttribute->value[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLAttribute->value[0]);
 }
 
 + (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute error:(NSError **)error {
@@ -310,12 +310,12 @@
         return @"";
     }
     
-	return [NSString stringWithCString:&aXMLAttribute->value[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLAttribute->value[0]);
 }
 
 + (NSString*) textForElement:(TBXMLElement*)aXMLElement {
 	if (nil == aXMLElement->text) return @"";
-	return [NSString stringWithCString:&aXMLElement->text[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLElement->text[0]);
 }
 
 + (NSString*) textForElement:(TBXMLElement*)aXMLElement error:(NSError **)error {
@@ -331,7 +331,7 @@
         return @"";
     }
     
-	return [NSString stringWithCString:&aXMLElement->text[0] encoding:NSUTF8StringEncoding];
+	return @(&aXMLElement->text[0]);
 }
 
 + (NSString*) valueOfAttributeNamed:(NSString *)aName forElement:(TBXMLElement*)aXMLElement {
@@ -340,7 +340,7 @@
 	TBXMLAttribute * attribute = aXMLElement->firstAttribute;
 	while (attribute) {
 		if (strlen(attribute->name) == strlen(name) && memcmp(attribute->name,name,strlen(name)) == 0) {
-			value = [NSString stringWithCString:&attribute->value[0] encoding:NSUTF8StringEncoding];
+			value = @(&attribute->value[0]);
 			break;
 		}
 		attribute = attribute->next;
@@ -368,7 +368,7 @@
 	while (attribute) {
 		if (strlen(attribute->name) == strlen(name) && memcmp(attribute->name,name,strlen(name)) == 0) {
             if (attribute->value[0])
-                value = [NSString stringWithCString:&attribute->value[0] encoding:NSUTF8StringEncoding];
+                value = @(&attribute->value[0]);
             else
                 value = @"";
             
@@ -472,7 +472,7 @@
     
     // navigate down
     for (NSInteger i=0; i < components.count; ++i) {
-        NSString *iTagName = [components objectAtIndex:i];
+        NSString *iTagName = components[i];
         
         if ([iTagName isEqualToString:@"*"]) {
             currTBXMLElement = currTBXMLElement->firstChild;
@@ -563,7 +563,7 @@
 
 + (NSError *) errorWithCode:(int)code {
     
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[TBXML errorTextForCode:code], NSLocalizedDescriptionKey, nil];
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey: [TBXML errorTextForCode:code]};
     
     return [NSError errorWithDomain:D_TBXML_DOMAIN 
                                code:code 

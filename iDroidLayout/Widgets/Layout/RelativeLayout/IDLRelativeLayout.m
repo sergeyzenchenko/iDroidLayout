@@ -26,8 +26,8 @@
 
 - (void)setupFromAttributes:(NSDictionary *)attrs {
     [super setupFromAttributes:attrs];
-    _gravity = [IDLGravity gravityFromAttribute:[attrs objectForKey:@"gravity"]];
-    _ignoreGravity = [attrs objectForKey:@"ignoreGravity"];
+    _gravity = [IDLGravity gravityFromAttribute:attrs[@"gravity"]];
+    _ignoreGravity = attrs[@"ignoreGravity"];
 }
 
 - (id)initWithAttributes:(NSDictionary *)attrs {
@@ -88,7 +88,7 @@
     [graph clear];
     
     for (int i = 0; i < count; i++) {
-        UIView *child = [self.subviews objectAtIndex:i];
+        UIView *child = (self.subviews)[i];
         [graph addView:child];
     }
     
@@ -147,7 +147,7 @@
     if (anchorParams != nil) {
         childParams.right = anchorParams.left - (anchorParams.margin.left +
                                                  childParamsMargin.right);
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleLeftOf] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleLeftOf] != [NSNull null]) {
         if (myWidth >= 0) {
             childParams.right = myWidth - padding.right - childParamsMargin.right;
         } else {
@@ -159,21 +159,21 @@
     if (anchorParams != nil) {
         childParams.left = anchorParams.right + (anchorParams.margin.right +
                                                  childParamsMargin.left);
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleRightOf] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleRightOf] != [NSNull null]) {
         childParams.left = padding.left + childParamsMargin.left;
     }
     
     anchorParams = [self relatedViewParamsWithRules:rules relation:IDLRelativeLayoutRuleAlignLeft];
     if (anchorParams != nil) {
         childParams.left = anchorParams.left + childParamsMargin.left;
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleAlignLeft] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleAlignLeft] != [NSNull null]) {
         childParams.left = padding.left + childParamsMargin.left;
     }
     
     anchorParams = [self relatedViewParamsWithRules:rules relation:IDLRelativeLayoutRuleAlignRight];
     if (anchorParams != nil) {
         childParams.right = anchorParams.right - childParamsMargin.right;
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleAlignRight] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleAlignRight] != [NSNull null]) {
         if (myWidth >= 0) {
             childParams.right = myWidth - padding.right - childParamsMargin.right;
         } else {
@@ -181,12 +181,12 @@
         }
     }
     
-    id alignParentLeft = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentLeft];
+    id alignParentLeft = rules[IDLRelativeLayoutRuleAlignParentLeft];
     if ([NSNull null] != alignParentLeft && [alignParentLeft boolValue]) {
         childParams.left = padding.left + childParamsMargin.left;
     }
     
-    id alignParentRight = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentRight];
+    id alignParentRight = rules[IDLRelativeLayoutRuleAlignParentRight];
     if ([NSNull null] != alignParentRight && [alignParentRight boolValue]) {
         if (myWidth >= 0) {
             childParams.right = myWidth - padding.right - childParamsMargin.right;
@@ -334,8 +334,8 @@
         params.right = params.left + child.measuredSize.width;
     } else if (params.left < 0 && params.right < 0) {
         // Both left and right vary
-        id centerInParent = [rules objectAtIndex:IDLRelativeLayoutRuleCenterInParent];
-        id centerHorizontal = [rules objectAtIndex:IDLRelativeLayoutRuleCenterHorizontal];
+        id centerInParent = rules[IDLRelativeLayoutRuleCenterInParent];
+        id centerHorizontal = rules[IDLRelativeLayoutRuleCenterHorizontal];
         if ((centerInParent != [NSNull null] && [centerInParent boolValue]) || (centerHorizontal != [NSNull null] && [centerHorizontal boolValue])) {
             if (!wrapContent) {
                 [self centerChild:child horizontalWithLayoutParams:params myWidth:myWidth];
@@ -349,7 +349,7 @@
             params.right = params.left + child.measuredSize.width;
         }
     }
-    id alignParentRight = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentRight];
+    id alignParentRight = rules[IDLRelativeLayoutRuleAlignParentRight];
     return  (alignParentRight != [NSNull null] && [alignParentRight boolValue]);
 }
 
@@ -366,8 +366,8 @@
         params.bottom = params.top + child.measuredSize.height;
     } else if (params.top < 0 && params.bottom < 0) {
         // Both top and bottom vary
-        id centerInParent = [rules objectAtIndex:IDLRelativeLayoutRuleCenterInParent];
-        id centerVertical = [rules objectAtIndex:IDLRelativeLayoutRuleCenterVertical];
+        id centerInParent = rules[IDLRelativeLayoutRuleCenterInParent];
+        id centerVertical = rules[IDLRelativeLayoutRuleCenterVertical];
         if ((centerInParent != [NSNull null] && [centerInParent boolValue]) || (centerVertical != [NSNull null] && [centerVertical boolValue])) {
             if (!wrapContent) {
                 [self centerChild:child verticalWithLayoutParams:params myHeight:myHeight];
@@ -381,7 +381,7 @@
             params.bottom = params.top + child.measuredSize.height;
         }
     }
-    id alignParentBottom = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentBottom];
+    id alignParentBottom = rules[IDLRelativeLayoutRuleAlignParentBottom];
     return  (alignParentBottom != [NSNull null] && [alignParentBottom boolValue]);
 }
 
@@ -398,7 +398,7 @@
     if (anchorParams != nil) {
         childParams.bottom = anchorParams.top - (anchorParams.margin.top +
                                                  childParamsMargin.bottom);
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleAbove] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleAbove] != [NSNull null]) {
         if (myHeight >= 0) {
             childParams.bottom = myHeight - padding.bottom - childParamsMargin.bottom;
         } else {
@@ -410,21 +410,21 @@
     if (anchorParams != nil) {
         childParams.top = anchorParams.bottom + (anchorParams.margin.bottom +
                                                  childParamsMargin.top);
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleBelow] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleBelow] != [NSNull null]) {
         childParams.top = padding.top + childParamsMargin.top;
     }
     
     anchorParams = [self relatedViewParamsWithRules:rules relation:IDLRelativeLayoutRuleAlignTop];
     if (anchorParams != nil) {
         childParams.top = anchorParams.top + childParamsMargin.top;
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleAlignTop] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleAlignTop] != [NSNull null]) {
         childParams.top = padding.top + childParamsMargin.top;
     }
     
     anchorParams = [self relatedViewParamsWithRules:rules relation:IDLRelativeLayoutRuleAlignBottom];
     if (anchorParams != nil) {
         childParams.bottom = anchorParams.bottom - childParamsMargin.bottom;
-    } else if (childParams.alignWithParent && [rules objectAtIndex:IDLRelativeLayoutRuleAlignBottom] != [NSNull null]) {
+    } else if (childParams.alignWithParent && rules[IDLRelativeLayoutRuleAlignBottom] != [NSNull null]) {
         if (myHeight >= 0) {
             childParams.bottom = myHeight - padding.bottom - childParamsMargin.bottom;
         } else {
@@ -432,12 +432,12 @@
         }
     }
     
-    id alignParentTop = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentTop];
+    id alignParentTop = rules[IDLRelativeLayoutRuleAlignParentTop];
     if ([NSNull null] != alignParentTop && [alignParentTop boolValue]) {
         childParams.top = padding.top + childParamsMargin.top;
     }
     
-    id alignParentBottom = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentBottom];
+    id alignParentBottom = rules[IDLRelativeLayoutRuleAlignParentBottom];
     if ([NSNull null] != alignParentBottom && [alignParentBottom boolValue]) {
         if (myHeight >= 0) {
             childParams.bottom = myHeight - padding.bottom - childParamsMargin.bottom;
@@ -446,7 +446,7 @@
         }
     }
     
-    id alignBaseline = [rules objectAtIndex:IDLRelativeLayoutRuleAlignBaseline];
+    id alignBaseline = rules[IDLRelativeLayoutRuleAlignBaseline];
     if (alignBaseline != [NSNull null] && [alignBaseline boolValue]) {
         _hasBaselineAlignedChild = true;
     }
@@ -549,7 +549,7 @@
     NSArray *views = _sortedHorizontalChildren;
     NSInteger count = [views count];
     for (int i = 0; i < count; i++) {
-        UIView *child = [views objectAtIndex:i];
+        UIView *child = views[i];
         if (child.visibility != IDLViewVisibilityGone) {
             IDLRelativeLayoutLayoutParams *params = (IDLRelativeLayoutLayoutParams *)child.layoutParams;
             
@@ -565,7 +565,7 @@
     count = [views count];
     
     for (int i = 0; i < count; i++) {
-        UIView *child = [views objectAtIndex:i];
+        UIView *child = views[i];
         
         if (child.visibility != IDLViewVisibilityGone) {
             IDLRelativeLayoutLayoutParams *params = (IDLRelativeLayoutLayoutParams *)child.layoutParams;
@@ -599,7 +599,7 @@
     
     if (_hasBaselineAlignedChild) {
         for (int i = 0; i < count; i++) {
-            UIView *child = [self.subviews objectAtIndex:i];
+            UIView *child = (self.subviews)[i];
             
             if (child.visibility != IDLViewVisibilityGone) {
                 IDLRelativeLayoutLayoutParams *params = (IDLRelativeLayoutLayoutParams *)child.layoutParams;
@@ -635,14 +635,14 @@
         
         if (offsetHorizontalAxis) {
             for (int i = 0; i < count; i++) {
-                UIView *child = [self.subviews objectAtIndex:i];
+                UIView *child = (self.subviews)[i];
                 
                 if (child.visibility != IDLViewVisibilityGone) {
                     IDLRelativeLayoutLayoutParams *params = (IDLRelativeLayoutLayoutParams *)child.layoutParams;
                     NSArray *rules = params.rules;
-                    id centerInParent = [rules objectAtIndex:IDLRelativeLayoutRuleCenterInParent];
-                    id centerHorizontal = [rules objectAtIndex:IDLRelativeLayoutRuleCenterHorizontal];
-                    id alignParentRight = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentRight];
+                    id centerInParent = rules[IDLRelativeLayoutRuleCenterInParent];
+                    id centerHorizontal = rules[IDLRelativeLayoutRuleCenterHorizontal];
+                    id alignParentRight = rules[IDLRelativeLayoutRuleAlignParentRight];
                     if ((centerInParent != [NSNull null] && [centerInParent boolValue]) || (centerHorizontal != [NSNull null] && [centerHorizontal boolValue])) {
                         [self centerChild:child horizontalWithLayoutParams:params myWidth:width];
                     } else if (alignParentRight != [NSNull null] && [alignParentRight boolValue]) {
@@ -669,14 +669,14 @@
         
         if (offsetVerticalAxis) {
             for (int i = 0; i < count; i++) {
-                UIView *child = [self.subviews objectAtIndex:i];
+                UIView *child = (self.subviews)[i];
                 
                 if (child.visibility != IDLViewVisibilityGone) {
                     IDLRelativeLayoutLayoutParams *params = (IDLRelativeLayoutLayoutParams *)child.layoutParams;
                     NSArray *rules = params.rules;
-                    id centerInParent = [rules objectAtIndex:IDLRelativeLayoutRuleCenterInParent];
-                    id centerVertical = [rules objectAtIndex:IDLRelativeLayoutRuleCenterVertical];
-                    id alignParentBottom = [rules objectAtIndex:IDLRelativeLayoutRuleAlignParentBottom];
+                    id centerInParent = rules[IDLRelativeLayoutRuleCenterInParent];
+                    id centerVertical = rules[IDLRelativeLayoutRuleCenterVertical];
+                    id alignParentBottom = rules[IDLRelativeLayoutRuleAlignParentBottom];
                     if ((centerInParent != [NSNull null] && [centerInParent boolValue]) || (centerVertical != [NSNull null] && [centerVertical boolValue])) {
                         [self centerChild:child verticalWithLayoutParams:params myHeight:height];
                     } else if (alignParentBottom != [NSNull null] && [alignParentBottom boolValue]) {
@@ -698,7 +698,7 @@
         CGFloat verticalOffset = _contentBounds.origin.y - top;
         if (horizontalOffset != 0 || verticalOffset != 0) {
             for (int i = 0; i < count; i++) {
-                UIView *child = [self.subviews objectAtIndex:i];
+                UIView *child = (self.subviews)[i];
                 
                 if (child.visibility != IDLViewVisibilityGone && child != ignore) {
                     IDLRelativeLayoutLayoutParams *params = (IDLRelativeLayoutLayoutParams *)child.layoutParams;
@@ -729,7 +729,7 @@
     int count = [self.subviews count];
     
     for (int i = 0; i < count; i++) {
-        UIView *child = [self.subviews objectAtIndex:i];
+        UIView *child = (self.subviews)[i];
         
         if (child.visibility != IDLViewVisibilityGone) {
             IDLRelativeLayoutLayoutParams *st = (IDLRelativeLayoutLayoutParams *)child.layoutParams;

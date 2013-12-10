@@ -190,7 +190,7 @@
     if (index == self.currentIndex) {
         ret = FALSE;
     } else if (index >= 0 && index < [state.drawables count]) {
-        IDLDrawable *drawable = [state.drawables objectAtIndex:index];
+        IDLDrawable *drawable = (state.drawables)[index];
         self.currentDrawable = drawable;
         self.currentIndex = index;
         drawable.state = self.state;

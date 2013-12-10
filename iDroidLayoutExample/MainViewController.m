@@ -61,8 +61,8 @@
     }
     UILabel *titleLabel = (UILabel *)[cell.layoutBridge findViewById:@"title"];
     UILabel *descriptionLabel = (UILabel *)[cell.layoutBridge findViewById:@"description"];
-    titleLabel.text = [_titles objectAtIndex:indexPath.row];
-    descriptionLabel.text = [_descriptions objectAtIndex:indexPath.row];
+    titleLabel.text = _titles[indexPath.row];
+    descriptionLabel.text = _descriptions[indexPath.row];
     
     return cell;
 }

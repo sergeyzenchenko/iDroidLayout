@@ -86,7 +86,7 @@
 - (void)onMeasureWithWidthMeasureSpec:(IDLLayoutMeasureSpec)widthMeasureSpec heightMeasureSpec:(IDLLayoutMeasureSpec)heightMeasureSpec {
     int size = [self.subviews count];
     for (int i = 0; i < size; ++i) {
-        UIView *child = [self.subviews objectAtIndex:i];
+        UIView *child = (self.subviews)[i];
         if (child.visibility != IDLViewVisibilityGone) {
             [self measureChildWithMargins:child parentWidthMeasureSpec:widthMeasureSpec widthUsed:0 parentHeightMeasureSpec:heightMeasureSpec heightUsed:0];
         }
@@ -130,7 +130,7 @@
 }
 
 - (void)willShowKeyboard:(NSNotification *)notification {
-    CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect keyboardFrame = [(notification.userInfo)[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGRect kbLocalFrame = [self convertRect:keyboardFrame fromView:self.window];
     NSLog(@"Show: %@", NSStringFromCGRect(kbLocalFrame));
     CGRect f = self.frame;
@@ -147,7 +147,7 @@
 }
 
 - (void)willHideKeyboard:(NSNotification *)notification {
-    CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect keyboardFrame = [(notification.userInfo)[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGRect kbLocalFrame = [self convertRect:keyboardFrame fromView:self.window];
     NSLog(@"Hide: %@", NSStringFromCGRect(kbLocalFrame));
     CGRect f = self.frame;
