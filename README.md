@@ -234,3 +234,7 @@ XML files always need a single root element. If you have to include multiple vie
     </merge>
 
 Now, when you include this layout in another layout (using the ``<include/>`` tag), the system ignores the ``<merge />`` element and places the two text views directly in the layout, in place of the ``<include/>`` tag.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sergeyzenchenko/idroidlayout/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
